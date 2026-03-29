@@ -4,12 +4,16 @@ namespace OracleAdminApp.Data
 {
     public class DbHelper
     {
-        private string connectionString =
-            "User Id=ATBM_ADMIN;Password=123;Data Source=localhost:1521/xepdb1;";
+        private string _connectionString;
+
+        public DbHelper(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
 
         public OracleConnection GetConnection()
         {
-            return new OracleConnection(connectionString);
+            return new OracleConnection(_connectionString);
         }
     }
 }
